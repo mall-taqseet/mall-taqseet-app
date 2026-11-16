@@ -1,0 +1,18 @@
+name: mall_taqseet
+description: مول التقسيط - تطبيق تقسيط موتوسيكلات
+publish_to: 'none'
+version: 1.3.0+4
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  url_launcher: ^6.2.5
+  shared_preferences: ^2.2.3
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,27 @@
+workflows:
+  android-workflow:
+    name: Mall Taqseet Android
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+    scripts:
+      - name: Generate Android platform folder
+        script: |
+          flutter create --platforms=android --org com.malltaqseet --project-name mall_taqseet .
+          rm -rf test
+      - name: Set app label (Arabic)
+        script: |
+          python3 - <<'PY'
+          import re
+          p = 'android/app/src/main/AndroidManifest.xml'
+          s = open(p, encoding='utf-8').read()
+          s = re.sub(r'android:label="[^"]*"', 'android:label="مول التقسيط"', s, count=1)
+          open(p, 'w', encoding='utf-8').write(s)
+          PY
+      - name: Get packages
+        script: flutter pub get
+      - name: Build release APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
