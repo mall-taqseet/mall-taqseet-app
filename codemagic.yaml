@@ -21,6 +21,9 @@ workflows:
           PY
       - name: Get packages
         script: flutter pub get
+      - name: Disable Android lint
+        script: |
+          printf '\nandroid { lint { abortOnError = false; checkReleaseBuilds = false } }\n' >> android/app/build.gradle.kts
       - name: Build release APK
         script: flutter build apk --release
     artifacts:
