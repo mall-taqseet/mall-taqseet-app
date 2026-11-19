@@ -8,6 +8,7 @@ import 'data.dart';
 import 'installments_page.dart';
 import 'pages.dart';
 import 'product_page.dart';
+import 'apply_page.dart';
 
 class HomeShell extends StatefulWidget {
   final Session session;
@@ -96,6 +97,15 @@ class _HomeShellState extends State<HomeShell> {
               ]),
             ),
             ListTile(
+              leading: const Icon(Icons.assignment, color: kOrange),
+              title: const Text('قدم على التقسيط'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute<void>(builder: (_) => const ApplyPage()));
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.storefront, color: kOrange),
               title: const Text('عن المول'),
               onTap: () {
@@ -176,6 +186,17 @@ class ProductsPage extends StatelessWidget {
           child: Text('أهلاً يا ${session.name} 👋',
               style: const TextStyle(
                   fontSize: 18, fontWeight: FontWeight.bold, color: kOrange)),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
+        child: ElevatedButton.icon(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute<void>(builder: (_) => const ApplyPage()));
+          },
+          icon: const Icon(Icons.assignment),
+          label: const Text('قدم على التقسيط دلوقتي'),
         ),
       ),
       Expanded(

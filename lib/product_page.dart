@@ -5,6 +5,7 @@ import 'auth.dart';
 import 'data.dart';
 import 'models.dart';
 import 'wire.dart';
+import 'apply_page.dart';
 
 class ProductPage extends StatefulWidget {
   final Product product;
@@ -251,6 +252,25 @@ class _ProductPageState extends State<ProductPage> {
             minimumSize: const Size.fromHeight(50),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          ),
+        ),
+        const SizedBox(height: 12),
+        ElevatedButton.icon(
+          icon: const Icon(Icons.assignment),
+          label: const Text('قدم على التقسيط - املى الاستمارة'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (_) => ApplyPage(bikeName: p.name),
+              ),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
+            minimumSize: const Size.fromHeight(50),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           ),
         ),
         const SizedBox(height: 12),
