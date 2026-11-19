@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:url_launcher/url_launcher.dart';
 class ApplyPage extends StatefulWidget {
   final String? bikeName;
   const ApplyPage({super.key, this.bikeName});
